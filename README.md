@@ -4,7 +4,7 @@
 
 1. Copio il file .env.example e lo rinomino in .env
 
-2. Apro il terminale ed eseguo il comando composer install
+2. Apro il  terminale ed eseguo il comando composer install
 
 3. Sempre nel terminale, al termine del comando composer install, eseguo il comando php artisan key:generate
 
