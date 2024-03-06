@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Str;
+
 class ProjectController extends Controller
 {
     /**
@@ -23,7 +25,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.projects.create');
     }
 
     /**
@@ -37,10 +39,9 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Project $project)
+    public function show(string $slug)
     {
-    //    $project = Project::where('slug', $slug)->firstOrFail();
-
+        $project = Project::where('slug',$slug)->firstOrFail();
         return view('admin.projects.show', compact('project'));
     }
 

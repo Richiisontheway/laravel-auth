@@ -14,6 +14,11 @@
                 </div>
                 
                     <table class="table">
+                        <div class="mb-4">
+                            <a href="{{ route('admin.projects.create') }}" class="btn btn-success w-100 fs-5">
+                                + Aggiungi
+                            </a>
+                        </div>
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -29,7 +34,7 @@
                                     <td>{{$item->title}}</td>
                                     <td>{{$item->date}}</td>
                                     <td>
-                                        <a href="{{ route('admin.projects.show' , ['project' => $item->id]) }}" class="btn btn-primary">
+                                        <a href="{{ route('admin.projects.show' , ['project' => $item->slug]) }}" class="btn btn-primary">
                                             Show
                                         </a>
                                         <a href="" class="btn btn-warning">
