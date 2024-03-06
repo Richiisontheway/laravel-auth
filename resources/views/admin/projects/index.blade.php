@@ -29,7 +29,7 @@
                                     <td>{{$item->title}}</td>
                                     <td>{{$item->date}}</td>
                                     <td>
-                                        <a href="{{ route('admin.projects.show' , ['project' => $project->id]) }}" class="btn btn-primary">
+                                        <a href="{{ route('admin.projects.show' , ['project' => $item->id]) }}" class="btn btn-primary">
                                             Show
                                         </a>
                                         <a href="" class="btn btn-warning">

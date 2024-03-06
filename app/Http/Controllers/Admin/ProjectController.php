@@ -39,6 +39,8 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
+    //    $project = Project::where('slug', $slug)->firstOrFail();
+
         return view('admin.projects.show', compact('project'));
     }
 
