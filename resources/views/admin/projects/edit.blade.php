@@ -4,7 +4,7 @@
 
 @section('main-content')
 <h1>
-    Comics {{$comic->title}}
+    Progetto {{$project->title}}
 </h1>
 
 <h2>
@@ -29,7 +29,7 @@
                 @method('PUT')
                 <div class="mb-3">
                     <label for="title" class="form-label">Titolo <span class="text-danger">*</span></label>
-                    <input value="{{$project->title}}" type="text" class="form-control" id="title" name="title" placeholder="Inserisci il titolo..." maxlength="64" required>
+                    <input value="{{$project->title}}" type="text" class="form-control" id="title" name="title" required placeholder="Inserisci il titolo..." maxlength="64" required>
                 </div>
                 <div class="mb-3">
                     <label for="image" class="form-label">SRC</label>
@@ -37,13 +37,13 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="date" class="form-label">prezzo</label>
-                    <input value="{{$project->date}}" type="number" class="form-control" id="date" name="date" placeholder="Inserisci il prezzo...">
+                    <label for="date" class="form-label">data</label>
+                    <input value="{{$project->date}}" type="date" class="form-control" id="date" name="date" placeholder="Inserisci il prezzo...">
                 </div>
 
                 <div class="mb-3">
-                    <label for="description" class="form-label">Serie <span class="text-danger">*</span></label>
-                    <textarea name="description" id="description"  rows="3">{{$project->description}}</textarea>
+                    <label for="description" class="form-label">descrizione <span class="text-danger">*</span></label>
+                    <textarea name="description" id="description"  rows="3" required maxlength="4064">{{$project->description}}</textarea>
                 </div>
 
                 <div>
