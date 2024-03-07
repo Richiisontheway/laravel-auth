@@ -12,6 +12,15 @@
                     </h1>
                     <br>
                 </div>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul class="mb-0">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 {{-- action per indicare dove portare i dati e method post a causa della route --}}
                 <form action="{{route('admin.projects.store')}}" method="POST">
                     {{-- token che serve a far accettare a laravel i dati del form --}}

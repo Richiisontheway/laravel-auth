@@ -36,15 +36,16 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request)
     {
         $validatedData = $request->validated();
-        $projects_data = $validatedData->all();
+        // $projects_data = $validatedData->all();
         $project = new Project();
-        $project->title = $projects_data['title'];
-        $project->description = $projects_data['description'];
-        $project->image = $projects_data['image'];
-        $project->date = $projects_data['date'];
+        $project->title = $validatedData['title'];
+        $project->description = $validatedData['description'];
+        $project->image = $validatedData['image'];
+        $project->date = $validatedData['date'];
+        $project->slug = $validatedData['title'];
         $project->save();
 
-         return redirect()->route('admin.projects.show', ['project' => $project->id]);
+         return redirect()->route('admin.projects.show', ['project' => $project->slug]);
     }
 
     /**
