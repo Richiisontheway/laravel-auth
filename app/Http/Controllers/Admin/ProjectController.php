@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Str;
 
+use App\Http\Requests\FormRequest\StoreProjectRequest;
+use App\Http\Requests\FormRequest\UpdateProjectRequest;
 class ProjectController extends Controller
 {
     /**
@@ -31,9 +33,18 @@ class ProjectController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreProjectRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+        $projects_data = $validatedData->all();
+        $project = new Project();
+        $project->title = $projects_data['title'];
+        $project->description = $projects_data['description'];
+        $project->image = $projects_data['image'];
+        $project->date = $projects_data['date'];
+        $project->save();
+
+         return redirect()->route('admin.projects.show', ['project' => $project->id]);
     }
 
     /**
@@ -50,15 +61,17 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('admin.projects.edit', compact('project'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Project $project)
+    public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        $validatedData = $request->validated();
+        $project->update($validatedData);
+        return redirect()->route('admin.projects.index', ['project' => $project->id]);
     }
 
     /**

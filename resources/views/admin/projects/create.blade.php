@@ -13,12 +13,12 @@
                     <br>
                 </div>
                 {{-- action per indicare dove portare i dati e method post a causa della route --}}
-                <form action="{{'admin.project.store'}}" method="POST">
+                <form action="{{route('admin.projects.store')}}" method="POST">
                     {{-- token che serve a far accettare a laravel i dati del form --}}
                     @csrf
                         <div class="mb-3">
                             <label for="title" class="form-label">Titolo <span class=" text-danger ">*</span></label>
-                            <input type="text" class="form-control" id="title" name="title" placeholder="Inserisci il titolo" maxlength="64">
+                            <input type="text" class="form-control" id="title" name="title" placeholder="Inserisci il titolo" maxlength="64" required>
                         </div>
                         <div class="mb-3">
                             <label for="image" class="form-label">SRC</label>
@@ -26,11 +26,16 @@
                         </div>
                         <div class="mb-3">
                             <label for="description" class="form-label">Descrizione <span class=" text-danger ">*</span></label>
-                            <textarea class="form-control" name="description" id="description" rows="3" placeholder="Inserisci la descrizione..."></textarea>
+                            <textarea class="form-control" name="description" id="description" rows="3" placeholder="Inserisci la descrizione..." required maxlength="4064"></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="date" class="form-label">Data</label>
-                            <input class="w-25 form-control"  type="date" class="form-control" id="date" name="date" placeholder="Inserisci il titolo" maxlength="64">
+                            <input class="w-25 form-control"  type="date" class="form-control" id="date" name="date" placeholder="Inserisci il titolo" >
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-success w-100">
+                                + Aggiungi
+                            </button>
                         </div>
                 </form>
 
